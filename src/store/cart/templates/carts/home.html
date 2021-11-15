@@ -1,0 +1,76 @@
+{% extends "Base.html" %}
+{% block Content %}
+{% include "navbar.html" with all_cats=all_cats%}
+<div class="container p-50">
+    <form action="#" class="cart-list-form">
+      <div class="table-responsive">
+        <table class="table">
+            <thead>
+              <tr>
+                <th colspan="2">Product</th>
+                <th>Price</th>
+                <th>QTY</th>
+                <th>Total</th>
+                <th>&nbsp;</th>
+              </tr>
+          </thead>
+          <tbody>
+            {% for item in p.all %}
+            <tr>
+              <td class="product-thumbnails"><a href="#" class="img-fluid" <img src="{{item.Images.url}}" alt=""></a></td>
+              <td class="product-info">
+                <a href="#" class="product-name">{{ item.title }}</a>
+                <div class="serial">{{item.id}}</div>
+                <ul>
+                  <li class="size">Size: Medium</li>
+                </ul>
+              </td>
+              <td class="price"><span>EGP {{ item.price }}</span></td>
+              <td class="quantity">
+                <ul class="order-box">
+                  <li><button class="value-decrease">-</button></li>
+                  <li><input type="number" min="1" max="22" value="1" disabled class="product-value val"></li>
+                  <li><button class="value-increase">+ </button></li>
+                </ul>
+              </td>
+              <td class="price total-price"><span>$99.00</span></td>
+              <td><a href="#" class="remove-product">x</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div> <!-- /.table-responsive -->
+
+      <div class="d-sm-flex justify-content-between cart-footer">
+        <div class="coupon-section">
+          <div class="coupon-form d-lg-flex align-items-center">
+            <input type="text" placeholder="Enter your code">
+            <button class="dark-button-one">Apply Coupne</button>
+          </div> <!-- /.coupon-form -->
+          <button class="dark-button-one update-cart-button">Update cart</button>
+        </div> <!-- /.coupon-section -->
+
+        <div class="cart-total-section">
+          <table class="cart-total-table">
+            <tbody>
+              <tr>
+                <th>Subtotal</th>
+                <td>$276.65</td>
+              </tr>
+              <tr>
+                <th>Shipping Cost</th>
+                <td>$13.00</td>
+              </tr>
+              <tr>
+                <th>Total</th>
+                <td>EGP {{my_cart.total}}</td>
+              </tr>
+            </tbody>
+          </table> <!-- /.cart-total-table -->
+          <a href="checkout.html" class="dark-button-one checkout-process">Checkout</a>
+        </div>
+      </div> <!-- /.cart-footer -->
+    </form>
+  </div>
+
+ {% endblock %}

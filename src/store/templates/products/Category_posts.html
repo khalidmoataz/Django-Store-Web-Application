@@ -1,0 +1,43 @@
+<div class="container p-50">
+  <div class="row">
+    <h3>Latest {{ Cat.name }}</h3>
+    <div class="view_more text-right ml-auto">
+      <h3><a href="{{Cat.get_absolute_url}}">VIEW MORE</a></h3>
+    </div>
+  </div>
+
+  <div class="cat-section owl-carousel owl-theme justify-content-between">
+    {% for item_product in all_Cat_products %}
+    <div class="item item_p">
+      {% if item_product.express %}
+        <div class="express_delivery">
+          <span>Express Delivery</span>
+        </div>
+      {% endif %}
+      <div class="text-center">
+        <img src="{{item_product.Images.url}}" class="img-fluid" alt="">
+      </div>
+      <div class="item-info-product">
+        <p class="brand_name">{{ item_product.Brand }}</p>
+        <a href="{{ item_product.get_absolute_url }}"><h2>{{ item_product.title|slice:":45"}}</h2></a>
+        {% if item_product.OfferPercent is not None %}
+        <span class="OfferPercent">{{ item_product.OfferPercent }}% OFF</span>
+        <p class="dash_price">EGP {{ item_product.price }}</p>
+        <p>EGP {{ item_product.offerprice }}</p>
+        {% else %}
+        <p>EGP {{ item_product.price }}</p>
+        {% endif %}
+      </div>
+      <form class="cart_update" action="{% url 'cart:update' %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="product_id" value="{{ item_product.id }}">
+        {% if item_product in the_cart.Products.all %}
+        <button class="cart-btn btn btn-danger" type="submit">Remove</button>
+        {% else %}
+        <button class="cart-btn btn btn-primary" type="submit">ADD TO CART</button>
+        {% endif %}
+      </form>
+    </div>
+    {% endfor %}
+  </div>
+</div>

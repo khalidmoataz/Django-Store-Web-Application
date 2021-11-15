@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block Content %}
+{% include "navbar.html" with all_cats=all_cats%}
+<div class="home_page">
+  <img class="img-fluid" src="https://k.nooncdn.com/cms/pages/20190810/13baba1f170a3d32f3424b0b549e6042/en_slider-02.gif" alt="">
+  {% include 'products/Category_posts.html' with Cat=Electronics_category all_Cat_products=all_Electronics_products %}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <img class="img-fluid" src="https://k.nooncdn.com/cms/pages/20190603/f0c8d487fcccd0503b335b826a99d9a0/en_mb-cat-module-01.jpg" alt="">
+      </div>
+      <div class="col-sm-3">
+        <img class="img-fluid" src="https://k.nooncdn.com/cms/pages/20190603/f0c8d487fcccd0503b335b826a99d9a0/en_mb-cat-module-02.jpg" alt="">
+      </div>
+      <div class="col-sm-3">
+        <img class="img-fluid" src="https://k.nooncdn.com/cms/pages/20190603/f0c8d487fcccd0503b335b826a99d9a0/en_mb-cat-module-03.jpg" alt="">
+      </div>
+      <div class="col-sm-3">
+        <img class="img-fluid" src="https://k.nooncdn.com/cms/pages/20190603/f0c8d487fcccd0503b335b826a99d9a0/en_mb-cat-module-04.jpg" alt="">
+      </div>
+    </div>
+  </div>
+
+  {% include 'products/Category_posts.html' with Cat=Fashion_category all_Cat_products=all_Fashion_category_products %}
+</div>
+{% endblock %}

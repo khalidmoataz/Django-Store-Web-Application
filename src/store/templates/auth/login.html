@@ -1,0 +1,14 @@
+{% extends "Base.html" %}
+{% block Content %}
+<div class="login-page container text-center p-150">
+     <h1>Already <span> got an account?</span></h1>
+     <p>Then you know what's good.Just sign in mate!</p>
+     <p>Don’t have an account? <a href="../register">Sign up</a></p>
+     <form class="" method="post">
+       {{ login }}
+       {% csrf_token %}
+       {{ form.as_ul }}
+       <button class="btn btn-primary" type="submit" name="button">SIGN IN</button>
+     </form>
+ </div>
+{% endblock %}

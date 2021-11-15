@@ -1,0 +1,83 @@
+{% extends "Base.html" %}
+{% block Content %}
+{% include 'navbar.html' %}
+<section class="products-page p-50">
+  <div class="container text-left">
+    <div class="row">
+      <div class="col-lg-2 products-page-leftsidebar">
+        <h2>Category</h2>
+        <ul class="list-unstyled">
+          <li>Clothing</li>
+          <li>Shoes</li>
+          <li>Electronics</li>
+          <li>Accessories</li>
+        </ul>
+        <h2>Brand Colour</h2>
+        <ul class="list-unstyled">
+          <li>Clothing</li>
+          <li>Shoes</li>
+          <li>Electronics</li>
+          <li>Accessories</li>
+        </ul>
+      </div>
+      <div class="col-lg-10">
+        <div class="float-right">
+          <form action="{% url 'shop:query1' %}" method="GET">
+            {{ request.GET }}
+            {% for x, y in request.GET.items %}
+            {% if x in request.GET.keys %}
+            <input type="hidden" value="{{ y }}" name="{{ x }}">
+            {% endif %}
+            {% endfor %}
+            <button type="submit" value="lowtohigh" name="Sort">Low To High</button>
+            <button type="submit" value="300" name="PriceMax">Price Max = 300</button>
+          </form>
+          <!--
+            <form action="{% url 'shop:query1' %}" method="GET">
+            <button type="submit" value="lowtohigh" name="Sort">Low To High</button>
+            {% if request.GET %}
+            {% if request.GET.PriceMax is not None %}
+            <input type="hidden" value="{{ request.GET.PriceMax }}" name="PriceMax">
+            {% endif %}
+            {% endif %}
+            </form>
+            <form action="{% url 'shop:query1' %}" method="GET">
+              {% if request.GET.Sort is not None %}
+              <input type="hidden" value="{{ request.GET.Sort }}" name="Sort">
+              {% endif %}
+            <button type="submit" value="300" name="PriceMax">Price Max = 300</button>
+          </form>-->
+        </div>
+        <p>{{ size }} results found for Fashion</p>
+        <div class="row">
+          {% for item_product in all_products %}
+          <div class="col-lg-2 item_fashion">
+            <div class="text-center">
+              <img src="{{item_product.Images.url}}" class="img-fluid" alt="">
+            </div>
+            <div class="item-info-product">
+              <a href="{{ item_product.get_absolute_url }}"><h2>{{ item_product.title }}</h2></a>
+              {% if item_product.OfferPercent is not None %}
+              <p>EGP {{ item_product.offerprice }}</p>
+              {% else %}
+              <p>EGP {{ item_product.price }}</p>
+              {% endif %}
+            </div>
+            <form class="cart_update" action="{% url 'cart:update' %}" method="POST">
+              {% csrf_token %}
+              <input type="hidden" name="product_id" value="{{ item_product.id }}">
+              {% if item_product in the_cart.Products.all %}
+              <button class="btn btn-danger" type="submit">Remove</button>
+              {% else %}
+              <button class="btn btn-primary" type="submit">Add To Cart</button>
+              {% endif %}
+            </form>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}

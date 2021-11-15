@@ -1,0 +1,194 @@
+body{
+  font-family: 'Poppins', sans-serif;
+}
+.p-150{
+  padding-top:150px;
+  padding-bottom: 150px;
+}
+.p-50{
+  padding-top:50px;
+  padding-bottom: 50px;
+}
+.container{
+  max-width: 1250px;
+}
+.row{
+  margin-right: 0px;
+  margin-left: 0px;
+}
+.navbar-expand-lg{
+  padding-left: 55px;
+  padding-right: 55px;
+}
+nav{
+  background: #FA255E;
+}
+nav ul li a{
+  color: #FFF;
+  font-size: 13px
+}
+nav a{
+  color: #FFF
+}
+nav .form-inline .form-control{
+  width: 490px;
+}
+.btm-nav{
+  padding: 10px 17px 10px 55px;
+  background: #fcfbf4;
+  text-transform: uppercase;
+}
+.btm-nav ul li{
+  margin-right: 30px;
+  font-size: 14px;
+}
+.btm-nav a{
+  color: #212529;
+  font-weight: bold;
+}
+.btm-nav .navbar-nav{
+  flex-direction: row
+}
+.dropdown-item{
+  font-size: 13px;
+}
+/* Login Page  */
+.login-page h1{
+  font-size: 23px;
+  margin-bottom: 20px;
+}
+.login-page p{
+  margin-bottom: 40px;
+}
+.login-page h1 span{
+  font-weight: bold;
+}
+.login-page li{
+  list-style: none;
+}
+.login-page ::placeholder{
+  color: #000;
+  padding-left: 15px;
+  font-size: 12px;
+}
+.login_page_input{
+  border-radius: 50px;
+  border-style: none;
+  background: #ebeced;
+  margin-bottom: 17px;
+  width: 25%;
+  height: 33px;
+}
+/* Register Page  */
+.register-page li{
+  list-style: none;
+}
+.register_page_input{
+  border-radius: 50px;
+  border-style: none;
+  background: #ebeced;
+  margin-bottom: 17px;
+  width: 27%;
+  height: 33px;
+}
+.register-page ::placeholder{
+  color: #000;
+  padding-left: 15px;
+  font-size: 13px;
+}
+.register-page h1{
+  font-size: 23px;
+}
+.register-page p{
+  margin-bottom: 40px;
+}
+.products-page{
+  background: #f7f7fa
+}
+.products-page-leftsidebar h2{
+  font-size: 19px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.products-page-leftsidebar ul li{
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.item_fashion{
+  padding: 10px;
+  background: #FFF;
+  border: 2px solid #ebeced;
+  max-width: 14%;
+}
+.item_fashion img{
+  padding-bottom: 10px;
+}
+.item_fashion h2{
+  font-size: 13px;
+  height: 6vh
+}
+.item_fashion a{
+  color:#212529
+}
+.item-info-product{
+  padding: 3px;
+  height: 30vh
+}
+.item-info-product h2{
+  margin-bottom: 20px;
+}
+.home_page h3{
+  font-size: 18px
+}
+.item-info-product .brand_name{
+  font-size: 14px;
+  opacity: 0.8;
+  text-transform: uppercase;
+}
+.express_delivery{
+  font-size: 12px;
+  background: red;
+  color: #FFF;
+  font-weight: bold;
+  position: absolute;
+  padding: 2px;
+  top: 10px;
+  left: 26px;
+  text-align: center;
+}
+.dash_price {
+  font-size: 13px;
+  margin-bottom: -4px;
+  text-decoration: line-through;
+}
+.OfferPercent{
+  background: red;
+  padding: 3px;
+  color: #FFF;
+  font-size: 12px;
+}
+.cart-btn{
+  width: 100%;
+  font-size: 10px;
+  background: none;
+  color: red;
+  border-color: red;
+  height: 28px;
+}
+.cart-btn:hover{
+  background: #FA255E;
+  border: none;
+}
+.view_more{
+  background: red;
+  padding: 5px;
+  height: 5vh;
+  margin-bottom: 10px;
+ }
+.view_more h3{
+  font-size: 14px;
+  font-weight: bold
+}
+.view_more a{
+  color: #FFF
+}

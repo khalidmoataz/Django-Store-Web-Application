@@ -1,0 +1,46 @@
+{% extends "Base.html" %}
+{% block Content %}
+{% include 'navbar.html' %}
+<section class="products-page p-50">
+  <div class="container text-left">
+    <div class="row">
+      <div class="col-lg-2 products-page-leftsidebar">
+        <h2>Category</h2>
+        <ul class="list-unstyled">
+          <li>Clothing</li>
+          <li>Shoes</li>
+          <li>Electronics</li>
+          <li>Accessories</li>
+        </ul>
+        <h2>Brand Colour</h2>
+        <ul class="list-unstyled">
+          <li>Clothing</li>
+          <li>Shoes</li>
+          <li>Electronics</li>
+          <li>Accessories</li>
+        </ul>
+      </div>
+      <div class="col-lg-10">
+        <div class="float-right">
+          
+        </div>
+        <p>{{ all_products.count }} results found for {{ search_element }}</p>
+        <div class="row">
+          {% for item_product in all_products %}
+          <div class="col-lg-2 item_fashion">
+            <div class="text-center">
+              <img src="{{item_product.Images.url}}" class="img-fluid" alt="">
+            </div>
+            <div class="item-info-product">
+              <a href="{{ item_product.get_absolute_url }}"><h2>{{ item_product.title }}</h2></a>
+              <p>EGP {{ item_product.price }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}
